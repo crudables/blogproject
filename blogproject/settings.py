@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 #email configuration
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'ablesbizzy@gmail.com'
 EMAIL_HOST_PASSWORD = 'quietstorm'
 EMAIL_PORT = 587
