@@ -5,10 +5,15 @@ from .forms import EmailPostForm
 from django.core.mail import send_mail
 from .models import Comment
 from .forms import CommentForm
+from taggit.models import Tag
 
 # Create your views here.
-def post_list(request):
+def post_list(request,tag_slug=None):
     posts_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in[tag])
     paginator = Paginator(posts_list, 3) #3 post in each Page
     page = request.GET.get('page')
     try:
